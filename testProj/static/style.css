@@ -1,0 +1,80 @@
+/* Sorry there are no comments, will add them soon*/
+
+body {
+  background: #F9F6DC;
+  font-family: Georgia, sans-serif;
+  line-height:1.6em;
+}
+
+
+.navbar {
+  background: #151515;
+}
+
+ .navbar-nav{
+  margin-top: 12px;
+ }
+
+.navbar-nav>li{
+  margin-left: 30px;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+.navbar-nav > li > a {
+  padding: 5px 10px;
+  margin: 0;
+  border-radius: 3px;
+  color: #fff;
+  line-height: 24px;
+  display: inline-block;
+}
+
+.navbar-nav > li > a:hover{
+	background-color: #E8CE0E;
+  color: #333;
+}
+
+ .navbar-nav > .active > a,
+ .navbar-nav > .active > a:hover,
+ .navbar-nav > .active > a:focus,
+ .navbar-nav > .open > a,
+ .navbar-nav > .open > a:hover,
+ .navbar-nav > .open > a:focus {
+  background-color: #E8CE0E;
+  color: #333;
+}
+
+a {
+  color: #E8CE0E;
+  -webkit-transition: color 300ms, background-color 300ms;
+  -moz-transition: color 300ms, background-color 300ms;
+  -o-transition:  color 300ms, background-color 300ms;
+  transition:  color 300ms, background-color 300ms;
+}
+
+#footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  background: #000;
+}
+
+#footer a {
+  color: #fff;
+}
+
+#footer a:hover {
+  color: #E8CE0E;
+}
+
+/* #footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer ul > li {
+  display: inline-block;
+  margin-left: 15px;
+} */

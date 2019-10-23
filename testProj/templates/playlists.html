@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <div class="container mx-auto d-block">
+            <h2>Playlists</h2>
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header">
+                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                    Jazz
+                  </a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                  <div class="card-body">
+                        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                  Pop
+                </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                    Rock
+                  </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% endblock content %}
