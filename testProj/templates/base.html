@@ -22,16 +22,15 @@
 <body>
     <nav class="navbar navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{% url 'home' %}">
                 <img src={% static "logo2.png" %} style="width: 90px;" alt="logo">
             </a>
             <ul class="navbar-nav ml-sm-auto">
-                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Timeline</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Share Your Story</a></li>
-                <li class="nav-item"><a class="nav-link" href="playlists.html">Playlists</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Episodes</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Contribute to RadioActive</a></li>
+                <li {% if "/" == request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li {% if 'submit_story' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'submit_story' %}">Share Your Story</a></li>
+                <li {% if 'playlists' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'playlists' %}">Playlists</a></li>
+                <li {% if 'episodes' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'episodes' %}">Episodes</a></li>
+                <li {% if 'voicenote' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'voicenote' %}">Send Voice Note</a></li>
             </ul>
         </div>
     </nav>
@@ -41,13 +40,13 @@
     <footer id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-2">
+                <div class="col-2 mx-auto">
                     <ul class="list-unstyled">
                     <li><a href="https://krcl.org" target="_blank"><img src={% static "footer/krcl_footer.png" %} alt="krcl footer logo"></a></li>
-                    <li class="pt-5">Listener's Community Radio of Utah dba KRCL 90.9 fm is a 501(c)(3) nonprofit registered in the US under EIN #87-0322222</li>
+                    <li class="pt-5"></li>
                     </ul>
                 </div>
-                <div class="col-2">
+                <div class="col-2 mx-auto ">
                     <ul class="list-unstyled">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
@@ -55,12 +54,17 @@
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-4">
+                <div class="col-4 mx-auto">
                     <ul class="list-unstyled">
                          <li><a href="https://apps.apple.com/us/app/krcl-public-radio-app/id518820032" target="_blank"><img class="mx-auto d-flex" src={% static "footer/apple.svg" %} alt="App store download krcl app" style="width: 130px;"></a></li>
                          <li><a href="https://play.google.com/store/apps/details?id=com.skyblue.pra.krcl&hl=en_US" target="_blank"><img class="mx-auto d-flex" src={% static "footer/google.png" %} alt="Google play download krcl app" style="width: 150px;"></a></li>
                     </ul>
                  </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                &copy; KRCL 2019 Listener's Community Radio of Utah dba KRCL 90.9 fm is a 501(c)(3) nonprofit registered in the US under EIN #87-0322222
             </div>
         </div>
     </footer>

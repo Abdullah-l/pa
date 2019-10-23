@@ -1,14 +1,24 @@
-/* Sorry there are no comments, will add them soon*/
+
+:root {
+  --Donar_Brown: #372416;
+  --Fall_Donor: #E58E3D;
+  --Fall_Brown: #715437;
+  --Fall_Green: #686144;
+  --KRCL_White: #F9F6DC;
+  --Side1: #F5B44F;
+  --Side2: #080809;
+  --navTabs: #E8CE0E;
+}
 
 body {
-  background: #F9F6DC;
+  background: var(--KRCL_White);
   font-family: Georgia, sans-serif;
   line-height:1.6em;
 }
 
 
 .navbar {
-  background: #151515;
+  background: var(--Side2);
 }
 
  .navbar-nav{
@@ -31,7 +41,7 @@ body {
 }
 
 .navbar-nav > li > a:hover{
-	background-color: #E8CE0E;
+	background-color: var(--navTabs);
   color: #333;
 }
 
@@ -41,12 +51,12 @@ body {
  .navbar-nav > .open > a,
  .navbar-nav > .open > a:hover,
  .navbar-nav > .open > a:focus {
-  background-color: #E8CE0E;
+  background-color: var(--navTabs);
   color: #333;
 }
 
 a {
-  color: #E8CE0E;
+  color: var(--navTabs);
   -webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
@@ -55,7 +65,6 @@ a {
 
 #footer {
   padding-top: 30px;
-  padding-bottom: 30px;
   color: #fff;
   background: #000;
 }
@@ -65,7 +74,16 @@ a {
 }
 
 #footer a:hover {
-  color: #E8CE0E;
+  color: var(--navTabs);
+}
+
+.footer-copyright {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  background-color: rgba(126, 126, 126, 0.2);
+  text-align: center;
+  font-size: .9rem;
 }
 
 /* #footer ul {
