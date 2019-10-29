@@ -16,7 +16,11 @@ body {
   line-height:1.6em;
 }
 
-
+/* btn.a {
+  background-color: var(--Fall_Donor);
+  border-radius: 55px;
+  border-color: #ffffff;
+} */
 .navbar {
   background: var(--Side2);
 }

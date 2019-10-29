@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}Episodes{% endblock title %}
 {% block content %}
 </br>
 </br>
@@ -7,12 +7,25 @@
 </br>
 
 <div class="container">
-    <div class="jumbotron" style="    background-color: #686144; border: solid; color: #F9F6DC;">
-      <h1>Under Construction</h1>      
-      <p>Coming soon..</p>
+    <h2>RadioActive Past Episodes</h2>
+    <br>
+    <ul class="nav nav-tabs" role="tablist">
+      {% for episode in episodes_list %}
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#track{{ episode.trackId }}">{{ episode.pub_date }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  
+    <div class="tab-content">
+       {% for episode in episodes_list %}
+      <div id="track{{ episode.trackId }}" class="container tab-pane fade"><br>
+        {% include 'partials/_iframeSC.html' %}
+      </div>
+      {% endfor %}
+
     </div>
   </div>
-
 </br>
 </br>
 </br>

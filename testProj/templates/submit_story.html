@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Submit Story{% endblock title %}
 
 {% block content %}
 </br>
@@ -7,12 +8,34 @@
 </br>
 
 <div class="container">
-    <div class="jumbotron" style="    background-color: #686144; border: solid; color: #F9F6DC;">
-      <h1>Under Construction</h1>      
-      <p>Coming soon..</p>
-    </div>
-  </div>
+        <h2>Share your story to the timeline:</h2>
+    </br>
 
+        <form>
+          <div class="form-group">
+            <label for="headline">Headline:</label>
+            <input type="text" class="form-control" id="headline" placeholder="Enter a headline" name="headline">
+          </div>
+          <div class="form-group">
+                <label for="text">Text:</label>
+                <input type="text" class="form-control" id="text" placeholder="Enter some text" name="text">
+        </div>
+        <div class="form-group">
+                <label for="event_date">Date of Event:</label>
+                <input type="date" class="form-control" id="event_date" placeholder="Enter a date" name="event_date">
+              </div>
+            </br>
+
+         <h3>Media</h3>
+
+         <div class="form-group">
+                <label for="url">Enter one URL from any of the following services: YouTube, SoundCloud, Spotify, Twitter, Google Maps, Instagram, Flickr, or Wikipedia:</label>
+                <input type="url" class="form-control" id="url" placeholder="Enter a URL" name="url">
+        </div>
+    </br>
+          <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+      </div>
 </br>
 </br>
 </br>

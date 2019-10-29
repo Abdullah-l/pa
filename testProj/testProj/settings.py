@@ -27,17 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["testthisstuff.pythonanywhere.com", "127.0.0.1"]
 
+APPEND_SLASH = False
 
 # Application definition
 
 INSTALLED_APPS = [
+    'testApp.apps.TestappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testApp',
 ]
 
 MIDDLEWARE = [

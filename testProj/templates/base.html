@@ -5,38 +5,44 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KRCL is the best</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>KRCL {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href={% static "style.css" %} rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300|Arvo:700|News+Cycle|Source+Sans+Pro:400,600,900,700,400italic" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
     {% block timeline %}
 
     {% endblock timeline %}
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <img src={% static "logo2.png" %} style="width: 90px;" alt="logo">
-            </a>
-            <ul class="navbar-nav ml-sm-auto">
-                <li {% if "/" == request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                <li {% if 'submit_story' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'submit_story' %}">Share Your Story</a></li>
-                <li {% if 'playlists' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'playlists' %}">Playlists</a></li>
-                <li {% if 'episodes' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'episodes' %}">Episodes</a></li>
-                <li {% if 'voicenote' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'voicenote' %}">Send Voice Note</a></li>
-            </ul>
-        </div>
-    </nav>
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src={% static "logo2.png" %} style="width: 90px;" alt="logo">
+                </a>
+                <ul class="navbar-nav ml-sm-auto">
+                    <li {% if "/" == request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li {% if 'submit_story' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'submit_story' %}">Share Your Story</a></li>
+                    <li {% if 'playlists' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'playlists' %}">Playlists</a></li>
+                    <li {% if 'episodes' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'episodes' %}">Episodes</a></li>
+                    <li {% if 'voicenote' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'voicenote' %}">Send Voice Note</a></li>
+                    <div class="ml-5"><li><a href="https://krcl.secureallegiance.com/krcl/WebModule/Donate.aspx?P=2018FALLPR&PAGETYPE=PLG&CHECK=Q%2bkxhH3Nxza6h5Xt8yfCBr1YhDw50SikSh2nq0qouhg%3d" class="btn btn-warning" role="button" target="_blank">Donate</a></li></div>
+                </ul>
+            </div>
+        </nav>
 
-    {% block content %}{% endblock content %}
+    <!-- Content -->
+    {% block content %}
     
+    {% endblock content %}
+    
+    <!-- Footer -->
     <footer id="footer">
         <div class="container">
             <div class="row">
@@ -46,8 +52,8 @@
                     <li class="pt-5"></li>
                     </ul>
                 </div>
-                <div class="col-2 mx-auto ">
-                    <ul class="list-unstyled">
+                <div class="col-2 mx-auto">
+                    <ul class="list-unstyled"> 
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Faq</a></li>
@@ -61,6 +67,15 @@
                     </ul>
                  </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <ul class="list-inline pb-4">
+                <li class="list-inline-item"></li><a href="https://www.instagram.com/krclradio/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                <li class="list-inline-item"></li><a href="https://www.facebook.com/KRCLradio" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>
+                <li class="list-inline-item"></li><a href="https://twitter.com/KRCLradio" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                <li class="list-inline-item"></li><a href="https://krcl.org/rss/news/" target="_blank"><i class="fas fa-rss fa-2x"></i></a></li>
+
+            </ul>
         </div>
         <div class="footer-copyright">
             <div class="container-fluid">

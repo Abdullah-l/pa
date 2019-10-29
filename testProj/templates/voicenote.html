@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% block title %}Sumbit VoiceNote{% endblock title %}
+{% load static %}
 
 {% block content %}
 </br>
@@ -7,12 +9,38 @@
 </br>
 
 <div class="container">
-    <div class="jumbotron" style="    background-color: #686144; border: solid; color: #F9F6DC;">
-      <h1>Under Construction</h1>      
-      <p>Coming soon..</p>
-    </div>
-  </div>
+        <h3>Send us your voice note</h3>
+        <p>Please keep it under 3 minutes.</p>
+        <button class="btn btn-success" id="record">Record</button>
 
+        <button class="btn btn-danger disabled" id="stop">Stop</button>
+
+        <button class="btn btn-info disabled" id="resume">Resume</button>
+
+        <button class="btn btn-warning disabled" id="pause">Pause</button>
+        </br></br>
+
+        <section id="recordings">
+           
+        </section>
+    </br>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="text">Phone:</label>
+                <input type="text" class="form-control" id="text" placeholder="Enter your phone number" name="text">
+            </div>
+            </br>
+            <p>Click submit and we will instantly receive your voice note!</p>
+            
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+    </div>
+    <script src="https://unpkg.com/mp3-mediarecorder@latest"></script>
+    <script src={% static "voicenote.js" %}></script>
 </br>
 </br>
 </br>
