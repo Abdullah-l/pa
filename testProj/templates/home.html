@@ -4,14 +4,12 @@
 {% load static %}
 
 {% block timeline %}
-<!-- 1 -->
 <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
 
 <style>
 
 </style>
 
-<!-- 2 -->
 <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
 
 {% endblock timeline %}
@@ -20,15 +18,6 @@
 <div id='timeline-embed' style="width: 100%; height: 600px"></div>
 <!-- 3 -->
 <script type="text/javascript">
-   var options = {
-  }
-  // The TL.Timeline constructor takes at least two arguments:
-  // the id of the Timeline container (no '#'), and
-  // the URL to your JSON data file or Google spreadsheest.
-  // the id must refer to an element "above" this code,
-  // and the element must have CSS styling to give it width and height
-  // optionally, a third argument with configuration options can be passed.
-  // See below for more about options.
-  timeline = new TL.Timeline('timeline-embed', '{% static "dataTL.json" %}', options);
+  timeline = new TL.Timeline('timeline-embed', '{% static "dataTL.json" %}');
 </script>
 {% endblock content %}

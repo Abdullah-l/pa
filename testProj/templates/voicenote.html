@@ -24,14 +24,14 @@
            
         </section>
     </br>
-        <form>
+        <form method='POST'> {% csrf_token %}
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
+                <input type="text" class="form-control col-7" required id="name" placeholder="Enter your full name" name="name">
             </div>
             <div class="form-group">
                 <label for="text">Phone:</label>
-                <input type="text" class="form-control" id="text" placeholder="Enter your phone number" name="text">
+                <input type="text" class="form-control col-7" required id="text" placeholder="Enter your phone number" name="text">
             </div>
             </br>
             <p>Click submit and we will instantly receive your voice note!</p>

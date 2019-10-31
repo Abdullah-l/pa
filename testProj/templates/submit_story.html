@@ -6,45 +6,34 @@
 </br>
 </br>
 </br>
-
-<form method='POST'> {% csrf_token %}
-        {{ form.as_p }}
-        
-        <input type='submit' value='Save' />
-     </form>
-<!-- <div class="container">
-        <h2>Share your story to the timeline:</h2>
-    </br>
-
-        <form>
-          <div class="form-group">
-            <label for="headline">Headline:</label>
-            <input type="text" class="form-control" id="headline" placeholder="Enter a headline" name="headline">
-          </div>
-          <div class="form-group">
-                <label for="text">Text:</label>
-                <textarea type="text" rows="4" class="form-control" id="text" placeholder="Enter some text" name="text"></textarea>
+<div class="container">
+  <h2>Share your story to the timeline:</h2>
+  </br>
+  <form method='POST'> {% csrf_token %}
+      <div class="form-group">
+          <label for="headline">Headline:</label>
+          <input type="text" class="form-control col-6" required id="headline" placeholder="Enter a headline" name="headline">
         </div>
         <div class="form-group">
-                <label for="event_date">Date of Event:</label>
-                <input type="date" class="form-control" id="event_date" placeholder="Enter a date" name="event_date">
-              </div>
-            </br>
+              <label for="text">Text:</label>
+              <textarea type="text" rows="4" class="form-control col-6" required id="text" placeholder="Enter some text" name="text"></textarea>
+      </div>
+      <div class="form-group">
+              <label for="event_date">Date of Event:</label>
+              <input type="date" class="form-control col-2" required id="event_date" placeholder="Enter a date" name="event_date">
+            </div>
+          </br>
 
-         <h3>Media</h3>
+        <h3>Media</h3>
 
-         <div class="form-group">
-                <label for="url">Enter one URL from any of the following services: YouTube, SoundCloud, Spotify, Twitter, Google Maps, Instagram, Flickr, or Wikipedia:</label>
-                <input type="url" class="form-control" id="url" placeholder="Enter a URL" name="url">
-        </div>
-        <div class="form-group">
-                <label for="media">Add media</label>
-                <input type="file" id="url" placeholder="Add media" name="media">
-        </div>
-    </br>
-          <button type="submit" class="btn btn-warning">Submit</button>
-        </form>
-      </div> -->
+        <div class="form-group mb-4">
+               <label for="media_url">Enter one URL from any of the following services: YouTube, SoundCloud, Spotify, Twitter, Google Maps, Instagram, Flickr, or Wikipedia:</label>
+               <input type="url" class="form-control col-6" id="media_url" placeholder="Enter a URL" name="media_url">
+       </div>
+       <button type='submit' value='Save' class="btn btn-warning">Submit</button>
+  </form>
+</div>
+
 </br>
 </br>
 </br>

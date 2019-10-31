@@ -12,14 +12,14 @@
     <ul class="nav nav-tabs" role="tablist">
       {% for episode in episodes_list %}
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#track{{ episode.trackId }}">{{ episode.pub_date }}</a>
+        <a class={% if forloop.first %}"nav-link active"{% else %}"nav-link"{% endif %} data-toggle="tab" href="#track{{ episode.trackId }}">{{ episode.pub_date }}</a>
       </li>
       {% endfor %}
     </ul>
   
     <div class="tab-content">
        {% for episode in episodes_list %}
-      <div id="track{{ episode.trackId }}" class="container tab-pane fade"><br>
+      <div id="track{{ episode.trackId }}" class="container tab-pane {% if forloop.first %}active{% else %}fade{% endif %}"><br>
         {% include 'partials/_iframeSC.html' %}
       </div>
       {% endfor %}

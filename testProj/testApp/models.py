@@ -13,6 +13,7 @@ class Timeline(models.Model):
     headline = models.TextField()
     text = models.TextField()
     event_date = models.DateField()
+    media_url = models.URLField()
 
     def __str__(self):
         return self.headline + " : " + self.text + " : " + str(self.event_date)

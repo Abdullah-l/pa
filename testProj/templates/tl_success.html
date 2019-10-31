@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+</br>
+</br>
+</br>
+</br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7 text-center">
+            <h1>Success!</h1></br>
+            <pre class="mb-4" style="font-size: 22px;">Thank you sharing your story with us.
+ Would you like to share another?</pre>
+            <a class="btn btn-warning" role="button" href="{% url 'submit_story' %}">Yes</a>
+            <a class="btn btn-warning" role="button" href="{% url 'home' %}">No</a>
+        </div>
+    </div>
+</div>
+
+</br>
+</br>
+</br>
+{% endblock content %}

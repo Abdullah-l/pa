@@ -25,12 +25,12 @@ def submit_story(request):
             new = json.load(roar)
             new['events'].append({
             "media": {
-                "url": "", 
+                "url": str(tl.media_url), 
                 "caption": "", 
                 "credit": ""
             }, 
             "start_date": {
-                "month": str(tl.event_date.strftime("%m")), 
+                "month": str(tl.event_date.month), 
                 "day": str(tl.event_date.day), 
                 "year": str(tl.event_date.year)
             }, 
@@ -41,7 +41,7 @@ def submit_story(request):
             })
             with open(file_path, 'w', errors='ignore', encoding="utf8") as hehe:
                 json.dump(new, hehe)
-
+            return render(request, 'tl_success.html')  
         
     context = {'form' : form}
     return render(request, 'submit_story.html', context)  
@@ -55,4 +55,6 @@ def episodes(request):
     return render(request, 'episodes.html', context)  
 
 def voicenote(request):
+    if(request.POST):
+            return render(request, 'vn_success.html')  
     return render(request, 'voicenote.html')  
