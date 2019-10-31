@@ -49,6 +49,14 @@ body {
   color: #333;
 }
 
+.nav-tabs .nav-link:hover {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  background-color: #c2bca5;
+  color: black;
+}
+
  .navbar-nav > .active > a,
  .navbar-nav > .active > a:hover,
  .navbar-nav > .active > a:focus,
@@ -60,7 +68,7 @@ body {
 }
 
 a {
-  color: var(--navTabs);
+  color: var(--Fall_Green);
   -webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
@@ -88,6 +96,12 @@ a {
   background-color: rgba(126, 126, 126, 0.2);
   text-align: center;
   font-size: .9rem;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: var(--KRCL_White);
+  background-color: var(--Fall_Green);
+  border-color: var(--Donar_Brown);
 }
 
 /* #footer ul {
