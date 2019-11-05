@@ -97,3 +97,46 @@ a {
   background-color: var(--Fall_Green);
   border-color: var(--Donar_Brown);
 }
+
+/* Recording buttons styles */
+
+#record {
+  background-color: var(--Side2);
+  border-color: var(--Side2);
+  color: var(--KRCL_White);
+  }
+  
+  #record:focus {
+      box-shadow: 0 0 0 0.2rem rgba(8, 8, 9,.5);
+  }
+  
+  #stop {
+  background-color: var(--Fall_Brown);
+  border-color: var(--Fall_Brown);
+  color: var(--KRCL_White);
+  
+  }
+  
+  #stop:focus {
+      box-shadow: 0 0 0 0.2rem rgba(113, 84, 54,.5);
+  }
+  #resume {
+  background-color: var(--Donar_Brown);
+  border-color: var(--Donar_Brown);
+  color: var(--KRCL_White);
+  
+  }
+  
+  #resume:focus {
+      box-shadow: 0 0 0 0.2rem rgba(55, 36, 22,.5);
+  }
+  
+  #pause {
+  background-color: var(--Fall_Green);
+  border-color: var(--Fall_Green);
+  color: var(--KRCL_White);
+  }
+  
+  #pause:focus {
+      box-shadow: 0 0 0 0.2rem rgba(104, 97, 68,.5);
+  }

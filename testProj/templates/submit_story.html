@@ -10,26 +10,44 @@
   <h2>Share your story to the timeline:</h2>
   </br>
   <form method='POST'> {% csrf_token %}
+      {{ form.errors }}
+      {{ form.non_field_errors }}
       <div class="form-group">
-          <label for="headline">Headline:</label>
-          <input type="text" class="form-control col-6" required id="headline" placeholder="Enter a headline" name="headline">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control col-6" required id="title" placeholder="Enter a Title" name="title">
         </div>
         <div class="form-group">
-              <label for="text">Text:</label>
-              <textarea type="text" rows="4" class="form-control col-6" required id="text" placeholder="Enter some text" name="text"></textarea>
+              <label for="story">Story:</label>
+              <textarea type="text" rows="4" class="form-control col-6" required id="story" placeholder="Enter your Story" name="story"></textarea>
       </div>
       <div class="form-group">
-              <label for="event_date">Date of Event:</label>
-              <input type="date" class="form-control col-2" required id="event_date" placeholder="Enter a date" name="event_date">
+              <label for="startDate">Event Date:</label>
+              <input type="date" class="form-control col-4" required id="startDate" placeholder="Enter a date" name="startDate">
             </div>
+            <div class="form-group">
+                <label for="endDate">End Date (Not required):</label>
+                <input type="date" class="form-control col-4" id="endDate" placeholder="Enter a date" name="endDate">
+              </div>
           </br>
 
         <h3>Media</h3>
 
-        <div class="form-group mb-4">
-               <label for="media_url">Enter one URL from any of the following services: YouTube, SoundCloud, Spotify, Twitter, Google Maps, Instagram, Flickr, or Wikipedia:</label>
+        <div class="form-group">
+               <label for="media_url">Enter one URL:</label>
                <input type="url" class="form-control col-6" id="media_url" placeholder="Enter a URL" name="media_url">
        </div>
+       <div class="form-group">
+          <label for="caption">Caption:</label>
+          <input type="text" class="form-control col-6" id="caption" placeholder="Enter a caption" name="caption">
+        </div>
+        <div class="form-group">
+            <label for="credit">Credit:</label>
+            <input type="text" class="form-control col-6" id="credit" placeholder="Enter a credit" name="credit">
+          </div>
+       <div class="form-group mb-4">
+          <label for="backgroundImage">Background Image:</label>
+          <input type="url" class="form-control col-6" id="backgroundImage" placeholder="Enter a URL" name="backgroundImage">
+  </div>
        <button type='submit' value='Save' class="btn btn-warning">Submit</button>
   </form>
 </div>

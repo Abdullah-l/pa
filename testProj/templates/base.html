@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href={% static "favicon-32x32.png" %}>
     <link rel="icon" type="image/png" sizes="16x16" href={% static "favicon-16x16.png" %}>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> jquery.js?rand=23423423 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href={% static "style.css" %} rel="stylesheet">
@@ -55,10 +55,11 @@
                 </div>
                 <div class="col-2 mx-auto">
                     <ul class="list-unstyled"> 
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'submit_story' %}">Share Your Story</a></li>
+                        <li><a href="{% url 'playlists' %}">Playlists</a></li>
+                        <li><a href="{% url 'episodes' %}">Episodes</a></li>
+                        <li><a href="{% url 'voicenote' %}">Send Voice Note</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mx-auto">
