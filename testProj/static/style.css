@@ -33,6 +33,11 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(116, 165, 65, 0.25);
 }
 
+
+/* #topbar a{
+color: red;
+} */
+
 .btnGreen {
   background-color: var(--green);
   color: white;
@@ -129,17 +134,17 @@ a {
   border-color: var(--dark_gray);
 }
 
-.topbar {
+/* .topbar {
   overflow: hidden;
   height: 40px;
   align-content: center;
-  /* line-height: 30px; */
   background-color: var(--Fall_Green);
 }
 
 .topbar a {
   color: var(--KRCL_White);
-}
+} */
+
 /* Recording buttons styles */
 
 .vnbtn {
