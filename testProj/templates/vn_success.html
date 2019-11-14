@@ -7,11 +7,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-7 text-center">
-            <h1>Success!</h1></br>
-            <pre class="mb-4" style="font-size: 22px;">Thank you for sending us your voice note.
- Would you like to send another?</pre>
-            <a class="btn btn-warning" role="button" href="{% url 'voicenote' %}">Yes</a>
-            <a class="btn btn-warning" role="button" href="{% url 'home' %}">No</a>
+            <h1>Thank you, {{ name }}</h1></br>
+            <p class="mb-4" style="font-size: 22px;">Your voice note was successfully sent to KRCL. <br><br></p>
+            <a class="btn btnGreen" role="button" href="{% url 'voicenote' %}">Send another voice note</a><br> <br>
+            <a class="btn btnGreen" role="button" href="{% url 'home' %}">Home page</a>
         </div>
     </div>
 </div>

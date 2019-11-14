@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Submit VoiceNote{% endblock title %}
+{% block title %}Submit Voice Note{% endblock title %}
 {% load static %}
 
 {% block content %}
+
 </br>
 </br>
 </br>
@@ -14,34 +15,34 @@
     <p class="mb-4">Please keep it under 3 minutes.</p>
     <canvas class="visualizer" height="120px" style="display: none; border-radius: 50px; margin-bottom: 20px;"></canvas>
 
-    <button class="btn mr-2" id="record">Record</button>
+    <button class="btn btn-lg mr-2 fas fa-microphone fa-2x vnbtn" id="record"></button>
 
-    <button class="btn mr-2" disabled id="stop">Stop</button>
+    <button class="btn btn-lg mr-2 fas fa-stop fa-2x vnbtn" disabled id="stop"></button>
 
-    <button class="btn mr-2" disabled id="resume">Resume</button>
+    <button class="btn btn-lg mr-2 fas fa-play fa-2x vnbtn" disabled id="resume"></button>
 
-    <button class="btn mr-2" disabled id="pause">Pause</button>
+    <button class="btn btn-lg mr-2 fas fa-pause fa-2x vnbtn" disabled id="pause"></button>
     </br></br>
 
     <section class="mt-n3" id="recordings">
 
     </section>
     </br>
-    <form method='POST' id="post-form" enctype="multipart/form-data">
+    <form action="./success" method='POST' id="post-form" enctype="multipart/form-data">
         <div class="form-group mb-3">
             <label for="name">Name:</label>
             <input type="text" class="form-control col-7" required id="name" placeholder="Enter your name"
                 name="name">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <p></p>
             <label for="email">Email:</label>
             <input type="email" class="form-control col-7" required id="email" placeholder="Enter your email"
                 name="email">
             <p>(Testing purposes) Enter your email to check if the voicenote gets sent to your inbox.</p>
-        </div>
+        </div> -->
         </br>
-        <button id="submit" class="btn btn-warning">Submit</button>
+        <button id="submit" class="btn btnGreen">Submit</button>
     </form>
       <!-- The Modal -->
   <div class="modal fade" id="myModal">
@@ -61,7 +62,7 @@
             
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btnGreen" data-dismiss="modal">Close</button>
             </div>
             
           </div>
