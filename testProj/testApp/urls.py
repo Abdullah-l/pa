@@ -12,4 +12,5 @@ urlpatterns = [
     path('voicenote/', views.voicenote, name='voicenote'),
     path('colors/', views.colors, name='colors'),
     path('voicenote/success', views.vn_success, name='vn_success'),
+    path('contact/', views.contact, name='contact'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

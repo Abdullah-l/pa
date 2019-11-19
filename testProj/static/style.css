@@ -33,10 +33,13 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(116, 165, 65, 0.25);
 }
 
+h1 {
+  color: var(--dark_gray);
+}
 
-/* #topbar a{
-color: red;
-} */
+#topbar a{
+color: var(--dark_gray);
+}
 
 .btnGreen {
   background-color: var(--green);
@@ -90,7 +93,7 @@ color: red;
 }
 
 a {
-  color: var(--dark_gray);
+  color: var(--green);
   -webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
