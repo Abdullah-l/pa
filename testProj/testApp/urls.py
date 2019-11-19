@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -9,4 +12,4 @@ urlpatterns = [
     path('voicenote/', views.voicenote, name='voicenote'),
     path('colors/', views.colors, name='colors'),
     path('voicenote/success', views.vn_success, name='vn_success'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

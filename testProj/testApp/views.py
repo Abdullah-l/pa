@@ -25,7 +25,7 @@ def submit_story(request):
     if request.method == 'POST':
         form = TimelineForm(request.POST)
         if form.is_valid():
-            file_path = os.path.join(settings.BASE_DIR, 'static/dataTL.json')
+            file_path = os.path.join(settings.BASE_DIR, 'media/dataTL.json')
             print(form.cleaned_data)
             with open(file_path, 'r', errors='ignore', encoding="utf8") as roar:
                 new = json.load(roar)
