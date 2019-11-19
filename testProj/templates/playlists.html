@@ -11,6 +11,8 @@
     border: 0px none;
     margin-top: -134px;
     margin-bottom: -21vh;
+    min-height: 3500px;
+    width: 100vw;
   }
   .container {
       padding-left: 0px;
@@ -21,21 +23,12 @@
   @media only screen and (max-width: 352px) {
     #p {
       /* margin-top: -132px; */
-      width: 100vw;
-      height: 100vh;
-
     }
   }
 
   @media only screen and (min-width: 352px) {
     #p {
       /* margin-top: -132px; */
-      width: 100vw;
-      height: 100vh;
-    }
-    .container {
-      padding-left: 0px;
-      padding-right: 0px;
     }
   }
 
@@ -65,11 +58,17 @@
       margin-right: -15px;
       margin-bottom: -24vh;
     }
+    .container {
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 </style>
 <div class="container">
   <div class="row no-gutters">
-    <div class="mt-3">
+    <div class="mx-md-auto mt-3">
       <div style="overflow: hidden;">
         <iframe id="p"  src="https://krcl.org/playlist/"></iframe>
       </div>

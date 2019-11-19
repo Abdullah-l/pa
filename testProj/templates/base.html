@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>KRCL {% block title %}{% endblock title %}</title>
     <link rel="icon" type="image/png" sizes="32x32" href={% static "Asset1.png" %}>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -20,29 +20,29 @@
 
 </head>
 <body>
-        <div class="d-flex justify-content-around align-items-center" id="topbar">  
-                <div class="d-inline order-3">
+        <div class="d-none d-lg-flex align-items-center" id="topbar">  
+                <div class="d-inline order-3 mx-5">
                 <span class="align-text-bottom"> KRCL Social: </span>
                 <a href="https://www.instagram.com/krclradio/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
                 <a href="https://www.facebook.com/KRCLradio" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
                 <a href="https://twitter.com/KRCLradio" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                 <a href="https://krcl.org/rss/news/" target="_blank"><i class="fas fa-rss fa-2x"></i></a>
                 </div>
-                <div class="p-1 order-1">
+                <div class="p-1 order-2 mx-5 pl-5">
                     <a href="https://krcl.secureallegiance.com/krcl/WebModule/Donate.aspx?P=2018FALLPR&PAGETYPE=PLG&CHECK=Q%2bkxhH3Nxza6h5Xt8yfCBr1YhDw50SikSh2nq0qouhg%3d" class="btn btn-sm btnGreen" role="button" target="_blank">Donate</a>
                 </div>
-                <div class="p-2 order-2">
+                <div class="p-2 order-1 ml-auto mr-5 pr-5">
                     <span class="align-text-bottom">Listen live  </span>
                     <a href="https://krcl.org/listen-live" onclick="javascript:void window.open('https://krcl.org/listen-live','1436221340090','width=600,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0');return false;"><i class="fas fa-broadcast-tower fa-2x"></i></a>
                 </div>
             </div>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img src={% static "logoKRCL.png" %} alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon">   
                     <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
                     </span>                

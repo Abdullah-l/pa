@@ -2,11 +2,8 @@
 {% block title %}Submit Story{% endblock title %}
 
 {% block content %}
-</br>
-</br>
-</br>
-</br>
-<div class="container">
+
+<div class="container mt-5">
   <h2>Share your story to the timeline:</h2>
   </br>
   <form method='POST'> {% csrf_token %}
@@ -14,15 +11,15 @@
       {{ form.non_field_errors }}
       <div class="form-group">
           <label for="title">* Title:</label>
-          <input type="text" class="form-control col-6" required id="title" placeholder="Enter a Title" name="title">
+          <input type="text" class="form-control col-md-8 col-lg-6" required id="title" placeholder="Enter a Title" name="title">
         </div>
         <div class="form-group">
               <label for="story">* Story:</label>
-              <textarea type="text" rows="4" class="form-control col-6" required id="story" placeholder="Enter your Story" name="story"></textarea>
+              <textarea type="text" rows="4" class="form-control col-md-8 col-lg-6" required id="story" placeholder="Enter your Story" name="story"></textarea>
       </div>
       <div class="form-group">
               <label for="startDate">* Event Date:</label>
-              <input type="date" class="form-control col-4" required id="startDate" placeholder="Enter a date" name="startDate">
+              <input type="date" class="form-control col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2" required id="startDate" placeholder="Enter a date" name="startDate">
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -31,7 +28,7 @@
              </div>
             <div style="display: none;" id="end" class="form-group">
                 <label for="endDate">End Date:</label>
-                <input type="date" class="form-control col-4" id="endDate" placeholder="Enter a date" name="endDate">
+                <input type="date" class="form-control col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2" id="endDate" placeholder="Enter a date" name="endDate">
               </div>
           </br>
 
@@ -39,7 +36,7 @@
 
         <div class="form-group">
                <label for="media_url">Enter one URL:</label>
-               <input type="url" class="form-control col-6" id="media_url" placeholder="Enter a URL" name="media_url">
+               <input type="url" class="form-control col-md-8 col-lg-5" id="media_url" placeholder="Enter a URL" name="media_url">
        </div>
        <div class="form-group form-check">
           <label class="form-check-label">
@@ -48,7 +45,7 @@
        </div>
        <div style="display: none;" id="cap" class="form-group">
           <label for="caption">Caption:</label>
-          <input type="text" class="form-control col-6" id="caption" placeholder="Enter a caption" name="caption">
+          <input type="text" class="form-control col-md-6 col-lg-4" id="caption" placeholder="Enter a caption" name="caption">
         </div>
         <div class="form-group form-check">
             <label class="form-check-label">
@@ -57,11 +54,11 @@
          </div>
         <div style="display: none;" id="cred" class="form-group">
             <label for="credit">Credit:</label>
-            <input type="text" class="form-control col-6" id="credit" placeholder="Enter a credit" name="credit">
+            <input type="text" class="form-control col-md-6 col-lg-4" id="credit" placeholder="Enter a credit" name="credit">
           </div>
        <!-- <div class="form-group mb-4">
           <label for="backgroundImage">Background Image:</label>
-          <input type="url" class="form-control col-6" id="backgroundImage" placeholder="Enter a URL" name="backgroundImage">
+          <input type="url" class="form-controlcol-md-8 col-lg-6" id="backgroundImage" placeholder="Enter a URL" name="backgroundImage">
   </div> -->
        <button type='submit' value='Save' class="btn btnGreen">Submit</button>
   </form>
