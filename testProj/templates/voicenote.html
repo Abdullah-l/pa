@@ -4,16 +4,78 @@
 
 {% block content %}
 
+
 </br>
-</br>
-</br>
-</br>
+<script src="{% static "timer.js" %}"></script>
+<style>
+  #bord {
+    border: 2px groove #4C4A43;
+    width: 299px;
+    border-radius: 5px;
+  }
+  .countdown{
+    display: -webkit-inline-box;
+    font-size: -webkit-xxx-large;
+    background-color: #CCE4B4;
+    width: 286px;
+    height: 85px;
+    padding-left: 4.75rem!important;
+    padding-top: 1.55rem!important;
+  }
+  .jst-timeout{
+  color: #DC5600;
+  }
+
+  .modal-body {
+  background: var(--light_green3);
+}
+
+.modal-footer {
+  background: var(--light_green3);
+  border-top: 0px;
+}
+
+audio {
+  margin-top: 40px;
+
+}
+</style>
+<!-- <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> -->
 
 <div class="container">
     <h3>Send us your voice note</h3>
-    <p class="mt-4" id="aboveSubmit">Record a voice note then click submit and we will instantly receive your voice note!</p>
-    <p class="mb-4">Please keep it under 3 minutes.</p>
-    <canvas class="visualizer" height="120px" style="display: none; border-radius: 50px; margin-bottom: 20px;"></canvas>
+    <!-- <p class="mt-4" id="aboveSubmit">Record a voice note then click submit and we will instantly receive your voice note!</p>
+    <p class="mb-4">Please keep it under 3 minutes.</p> -->
+        <!-- Button to Open the Modal -->
+            <button class="btn btnGreen my-4" data-toggle="modal" data-target="#myModal">
+              What is a voice note?</button>
+      
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            
+              
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                Join the conversation and send us your input to have it heard on the show!
+              </br>Record your note then click submit and we will instantly receive your voice note so that your voice is 				heard.
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer justify-content-center">
+                    <button class="btn btnGreen" data-dismiss="modal">Done</button>
+              </div>
+              
+            </div>
+          </div>
+          </div>
+
+    <section id="bord" class="p-1">
+    <div class="timer timer2 alert alert-success countdown mb-4" data-minutes-left="3.01"></div><br>
+
+    <!-- <canvas class="visualizer" height="120px" style="display: none; border-radius: 50px; margin-bottom: 20px;"></canvas> -->
 
     <button class="btn btn-lg mr-2 fas fa-microphone fa-2x vnbtn" id="record"></button>
 
@@ -22,9 +84,9 @@
     <button class="btn btn-lg mr-2 fas fa-play fa-2x vnbtn" disabled id="resume"></button>
 
     <button class="btn btn-lg mr-2 fas fa-pause fa-2x vnbtn" disabled id="pause"></button>
-    </br></br>
+  </section>
 
-    <section class="mt-n3" id="recordings">
+    <section class="" id="recordings">
 
     </section>
     </br>
@@ -69,6 +131,64 @@
         </div>
       </div>
 </div>
+<script>
+      $(function(){
+		var timer2=$('.timer2').startTimer({
+			onComplete: function(element){console.log('Complete');}
+			//,onPause: $('.timerpause'), //optional, pause control
+			//onReset: $('.timerreset'), //optional, reset control
+			//onStart: $('.timerstart') //optional, start control
+			//loop: true, //optional, enable loop
+			//loopInterval: 2 //optional
+    });
+    timer2.trigger('resetime');
+    $("#record").on('click', function (e) {
+    timer2.trigger('start');
+    });
+    $("#pause").on('click', function (e) {
+    timer2.trigger('pause');
+    });
+    $("#resume").on('click', function (e) {
+    timer2.trigger('resume');
+    });
+    $("#stop").on('click', function (e) {
+    timer2.trigger('complete');
+    });
+		
+	})
+  $(document).on('submit', '#post-form', function (e) {
+    // e.preventDefault()
+    console.log("yo")
+    var fd = document.querySelector("form");
+    form = new FormData(fd)
+    form.append('audio', balob);
+    var btn = document.getElementById('submit');
+    btn.innerHTML = "";
+    var spn = document.createElement("SPAN");
+    spn.classList.add("spinner-border", "spinner-border-sm");
+    var text = document.createTextNode(" Sending..");
+    btn.appendChild(spn);
+    btn.appendChild(text);
+    // $.ajax({
+    //     url: "/voicenote/success",
+    //     type: 'POST',
+    //     data: form,
+    //     processData: false,
+    //     contentType: false,
+    //     error: function () {
+    //         $("#myModal").modal();
+    //         btn.innerHTML = "Submit";
+    //     }
+    // }).done(function (data) {
+    //     if (data.success) {
+    //         window.location.href = data.url;
+    //     }
+    // });
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'http://127.0.0.1:8000/voicenote/', true);
+    // xhr.send(form);
+});
+</script>
 <script src="https://unpkg.com/mp3-mediarecorder@latest"></script>
 <script src={% static "voicenote.js" %}></script>
 </br>

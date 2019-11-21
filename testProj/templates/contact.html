@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container mt-5">
+<div id="yo" class="container mt-5">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <h1>Contact Us</h1>
@@ -13,6 +13,53 @@
                 </div>
             </div>
         </div>
+    
+  <form method='POST'> {% csrf_token %}
+        {{ form.errors }}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <h4>Email KRCL</h4>
+            <label for="Subject">Subject:</label>
+            <input type="text" class="form-control col-md-8 col-lg-6" required id="Subject" placeholder="Enter a Subject" name="Subject">
+          </div>
+          <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="email" class="form-control col-md-8 col-lg-6" required id="Email" placeholder="Enter your Email" name="Subject">
+              </div>
+          <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea type="text" rows="4" class="form-control col-md-8 col-lg-6" required id="message" placeholder="Enter your Message" name="message"></textarea>
+        </div>
+        
+         <button type='submit' value='Save' class="btn btnGreen mb-5">Send</button>
+    </form>
+  </div>
+  
+  <style>
+          /* unvisited link */
+          #yo a:link {
+            color: #74A541;
+            text-decoration: underline;
+          }
+          
+          /* visited link */
+          #yo a:visited {
+            color: #74A541;
+            text-decoration: underline;
+          }
+          
+          /* mouse over link */
+          #yo a:hover {
+            color: #DC5600;
+            text-decoration: none;
+          }
+          
+          /* selected link */
+          #yo a:active {
+            color: #FAA634;
+          }
+  </style>
+  
     </div>
 
 {% endblock content %}

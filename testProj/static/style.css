@@ -23,7 +23,7 @@
 }
 
 body {
-  background: var(--light_green3);
+  background: white;
   font-family: Georgia, sans-serif;
   line-height:1.6em;
 }
@@ -44,6 +44,10 @@ color: var(--dark_gray);
 .btnGreen {
   background-color: var(--green);
   color: white;
+}
+
+.btnGreen:focus {
+  box-shadow: 0 0 0 0.2rem var(--light_green1);
 }
 
 .navbar {
