@@ -6,7 +6,7 @@
 
 
 </br>
-<script src="{% static "timer.js" %}"></script>
+<script src="{% static "timer.js" %}">  jquery.js?rand=23423423 </script>
 <style>
   #bord {
     border: 2px groove #4C4A43;
@@ -43,12 +43,12 @@ audio {
 <!-- <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> -->
 
 <div class="container">
-    <h3>Send us your voice note</h3>
+    <h3>Send us your Voice Note</h3>
     <!-- <p class="mt-4" id="aboveSubmit">Record a voice note then click submit and we will instantly receive your voice note!</p>
     <p class="mb-4">Please keep it under 3 minutes.</p> -->
         <!-- Button to Open the Modal -->
             <button class="btn btnGreen my-4" data-toggle="modal" data-target="#myModal">
-              What is a voice note?</button>
+              More Info...</button>
       
         <!-- The Modal -->
         <div class="modal" id="myModal">
@@ -59,8 +59,9 @@ audio {
               
               <!-- Modal body -->
               <div class="modal-body">
-                Join the conversation and send us your input to have it heard on the show!
-              </br>Record your note then click submit and we will instantly receive your voice note so that your voice is 				heard.
+                This is a recording widget for the RadioACTive show on KRCL.
+                Join the conversation and send us your input to have played on the show!
+              </br>After you finish recording click submit and we will instantly receive your voice note!
               </div>
               
               <!-- Modal footer -->

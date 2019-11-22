@@ -28,9 +28,15 @@ body {
   line-height:1.6em;
 }
 
+.form-control {
+  border-color: var(--green);
+  background-color: var(--light_green3);
+}
+
 .form-control:focus {
     border-color: var(--green);
     box-shadow: 0 0 0 0.2rem rgba(116, 165, 65, 0.25);
+    background-color: var(--light_green3);
 }
 
 h1 {
@@ -47,7 +53,7 @@ color: var(--dark_gray);
 }
 
 .btnGreen:focus {
-  box-shadow: 0 0 0 0.2rem var(--light_green1);
+  box-shadow: 0 0 0 0.2rem var(--light_green);
 }
 
 .navbar {
@@ -116,6 +122,14 @@ a {
 
 #footer a:hover {
   color: var(--light_green1);
+}
+
+#foot-logo {
+  position: absolute;
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+  border-bottom-color: var(--orange);
+  padding-bottom: 10px;
 }
 
 .footer-copyright {

@@ -20,18 +20,18 @@
 
 </head>
 <body>
-        <div class="d-none d-lg-flex align-items-center" id="topbar">  
-                <div class="d-inline order-3 mx-5">
+        <div class="d-lg-flex align-items-center" id="topbar">  
+                <div class="d-none d-lg-inline order-2 mx-5">
                 <span class="align-text-bottom"> KRCL Social: </span>
                 <a href="https://www.instagram.com/krclradio/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
                 <a href="https://www.facebook.com/KRCLradio" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
                 <a href="https://twitter.com/KRCLradio" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                 <a href="https://krcl.org/rss/news/" target="_blank"><i class="fas fa-rss fa-2x"></i></a>
                 </div>
-                <div class="p-1 order-2 mx-5 pl-5">
+                <div class="d-none d-lg-block p-1 order-3 mx-5 pl-5">
                     <a style="color: #fff;" href="https://krcl.secureallegiance.com/krcl/WebModule/Donate.aspx?P=2018FALLPR&PAGETYPE=PLG&CHECK=Q%2bkxhH3Nxza6h5Xt8yfCBr1YhDw50SikSh2nq0qouhg%3d" class="btn btn-sm btnGreen" role="button" target="_blank">Donate</a>
                 </div>
-                <div class="p-1 order-1 mr-auto ml-5">
+                <div class="p-1 order-1 mr-lg-auto ml-5">
                     <span class="align-text-top mr-1">Listen live:</span>
                     <a href="https://krcl.org/listen-live" onclick="javascript:void window.open('https://krcl.org/listen-live','1436221340090','width=600,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0');return false;"><img style="width: 40px;" src="{% static "radio.png" %}"></a>
                 </div>
@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'home' %}">
-                    <img src={% static "logoKRCL.png" %} alt="logo">
+                    <img src={% static "logoACT.png" %} style="width: 200px;" alt="logo">
                 </a>
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon">   
@@ -70,7 +70,7 @@
             <div class="row d-none d-md-flex">
                 <div class="col-4">
                     <ul class="list-unstyled mx-auto">
-                    <li><a href="https://krcl.org" target="_blank"><img src={% static "footer/krcl_footer.png" %} alt="krcl footer logo"></a></li>
+                    <li><a href="https://krcl.org" target="_blank"><img id="foot-logo" src={% static "footer/krcl_footer.png" %} alt="krcl footer logo"></a></li>
                     <li class="pt-5"></li>
                     </ul>
                 </div>
