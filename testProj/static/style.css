@@ -125,7 +125,6 @@ a {
 }
 
 #foot-logo {
-  position: absolute;
   border-bottom-style: solid;
   border-bottom-width: medium;
   border-bottom-color: var(--orange);

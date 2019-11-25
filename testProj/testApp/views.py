@@ -19,6 +19,10 @@ def colors(request):
     return render(request, 'colors.html')
 
 def contact(request):
+    if request.method == 'POST':
+        return render(request, 'cn_success.html')
+
+
     return render(request, 'contact.html')
 
 def home(request):
