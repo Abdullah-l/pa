@@ -15,7 +15,7 @@
   }
   .countdown{
     display: -webkit-inline-box;
-    font-size: -webkit-xxx-large;
+    font-size: 50px;
     background-color: #CCE4B4;
     width: 286px;
     height: 85px;
@@ -72,13 +72,14 @@ audio {
             </div>
           </div>
           </div>
+    <p id="mic">Please allow microphone access.</p>
 
     <section id="bord" class="p-1">
     <div class="timer timer2 alert alert-success countdown mb-4" data-minutes-left="3.01"></div><br>
 
     <!-- <canvas class="visualizer" height="120px" style="display: none; border-radius: 50px; margin-bottom: 20px;"></canvas> -->
-
-    <button class="btn btn-lg mr-2 fas fa-microphone fa-2x vnbtn" id="record"></button>
+    
+    <button class="btn btn-lg mr-2 fas fa-microphone fa-2x vnbtn" disabled id="record"></button>
 
     <button class="btn btn-lg mr-2 fas fa-stop fa-2x vnbtn" disabled id="stop"></button>
 
@@ -133,7 +134,7 @@ audio {
       </div>
 </div>
 <script>
-      $(function(){
+      // $(function(){
 		var timer2=$('.timer2').startTimer({
 			onComplete: function(element){console.log('Complete');}
 			//,onPause: $('.timerpause'), //optional, pause control
@@ -142,21 +143,23 @@ audio {
 			//loop: true, //optional, enable loop
 			//loopInterval: 2 //optional
     });
-    timer2.trigger('resetime');
-    $("#record").on('click', function (e) {
-    timer2.trigger('start');
-    });
-    $("#pause").on('click', function (e) {
-    timer2.trigger('pause');
-    });
-    $("#resume").on('click', function (e) {
-    timer2.trigger('resume');
-    });
-    $("#stop").on('click', function (e) {
-    timer2.trigger('complete');
-    });
+     timer2.trigger('resetime');
+    // $("#record").on('click', function (e) {
+    // if (gavePermission) {
+    // timer2.trigger('start');
+    // }
+    // });
+    // $("#pause").on('click', function (e) {
+    // timer2.trigger('pause');
+    // });
+    // $("#resume").on('click', function (e) {
+    // timer2.trigger('resume');
+    // });
+    // $("#stop").on('click', function (e) {
+    // timer2.trigger('complete');
+    // });
 		
-	})
+	// })
   $(document).on('submit', '#post-form', function (e) {
     // e.preventDefault()
     console.log("yo")

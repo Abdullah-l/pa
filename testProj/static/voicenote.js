@@ -3,7 +3,7 @@ const stopButton = document.getElementById('stop');
 const pauseButton = document.getElementById('pause');
 const resumeButton = document.getElementById('resume');
 const recordings = document.getElementById('recordings');
-const main = document.getElementById('main');
+const main = document.getElementById('mic');
 // var canvas = document.querySelector('.visualizer');
 var submitButton = document.getElementById('submit');
 var form = new FormData();
@@ -35,6 +35,7 @@ if (isBrowserSupported) {
     startButton.addEventListener('click', () => {
         navigator.mediaDevices.getUserMedia({ audio: true }).then(
             stream => {
+                mic.style.display = 'none';
                 mediaStream = stream;
                 recorder = new Mp3MediaRecorder(stream);
                 recorder.start();
@@ -43,6 +44,7 @@ if (isBrowserSupported) {
                     blobs = [];
                     // visualize(mediaStream);
                     // canvas.style.display = 'block';
+                    timer2.trigger('start');
                     startButton.disabled = true;
                     stopButton.disabled = false;
                     pauseButton.disabled = false;
@@ -55,6 +57,7 @@ if (isBrowserSupported) {
 
                 recorder.onstop = e => {
                     console.log('onstop', e);
+                    timer2.trigger('complete');
                     mediaStream.getTracks().forEach(track => track.stop());
 
                     pauseButton.disabled = true;
@@ -75,6 +78,7 @@ if (isBrowserSupported) {
 
                 recorder.onpause = e => {
                     console.log('onpause', e);
+                    timer2.trigger('pause');
                     resumeButton.disabled = false;
                     pauseButton.disabled = true;
                     stopButton.disabled = true;
@@ -83,6 +87,7 @@ if (isBrowserSupported) {
 
                 recorder.onresume = e => {
                     console.log('onresume', e);
+                    timer2.trigger('resume');
                     resumeButton.disabled = true;
                     pauseButton.disabled = false;
                     stopButton.disabled = false;
@@ -95,6 +100,7 @@ if (isBrowserSupported) {
             },
             reason => {
                 console.warn('Could not get microphone access.\nError:', reason.message);
+                startButton.disabled = true;
             }
         );
     });
@@ -127,11 +133,11 @@ if (isBrowserSupported) {
 
     if (!supportsUserMediaAPI) {
         renderError(
-            'MP3 MediaRecorder requires the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API" class="nes-text is-error">getUserMedia API</a> but it is not supported in your browser.'
+            'This recorder requires the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API" class="nes-text is-error">getUserMedia API</a> but it is not supported in your browser.'
         );
     } else if (!supportsWasm) {
         renderError(
-            'MP3 MediaRecorder requires <a href="https://developer.mozilla.org/en-US/docs/WebAssembly" class="nes-text is-error">WebAssembly</a> but it is not supported in your browser.'
+            'This recorder requires <a href="https://developer.mozilla.org/en-US/docs/WebAssembly" class="nes-text is-error">WebAssembly</a> but it is not supported in your browser.'
         );
     }
 }
