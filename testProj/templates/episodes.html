@@ -11,9 +11,11 @@
     <br>
     <ul class="nav nav-tabs" role="tablist">
       {% for episode in episodes_list %}
+      {% if forloop.counter <= 8 %}
       <li class="nav-item">
         <a class={% if forloop.first %}"nav-link active"{% else %}"nav-link"{% endif %} data-toggle="tab" href="#track{{ episode.trackId }}">{{ episode.pub_date }}</a>
       </li>
+      {% endif %}
       {% endfor %}
     </ul>
   
