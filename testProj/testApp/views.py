@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import TimelineForm, VoicenoteForm
-from .models import Episode
+from .models import Episode, Timeline
 import json
 import os
 from django.conf import settings
@@ -26,48 +26,53 @@ def contact(request):
     return render(request, 'contact.html')
 
 def home(request):
+    tl = Timeline.objects.all()
+    print(tl)
+    file_path = os.path.join(settings.BASE_DIR, 'media/t.json')
+    with open(file_path, 'r', errors='ignore', encoding="utf8") as roar:
+        new = json.load(roar)
+        for event in tl:
+            print(event.endDate)
+            if event.approved:
+                new['events'].append({
+                "start_date": {
+                    "month": str(event.startDate.month), 
+                    "day": str(event.startDate.day), 
+                    "year": str(event.startDate.year)
+                },
+                "text": {
+                    "headline": event.title, 
+                    "text": "<p style=\"color: #DC5600\">Submitted by: " + event.name + "</p>" + event.story
+                }
+                })
+                if event.media_url:
+                    print("nooooooo")
+                    new['events'][len(new['events'])-1]["media"]= {
+                        "url": str(event.media_url),
+                        "caption": "",
+                        "credit": ""
+                        }
+                    if event.caption:
+                        new['events'][len(new['events'])-1]["media"]["caption"] = event.caption
+                    if event.credit:
+                        new['events'][len(new['events'])-1]["media"]["credit"] = event.credit
+                if event.endDate:
+                    new['events'][len(new['events'])-1]["end_date"]= {
+                    "month": str(event.endDate.month), 
+                    "day": str(event.endDate.day), 
+                    "year": str(event.endDate.year)
+                    }
+        gen_path = os.path.join(settings.BASE_DIR, 'media/2.json')
+        with open(gen_path, 'w', errors='ignore', encoding="utf8") as hehe:
+            json.dump(new, hehe)
     return render(request, 'home.html')
 
 def submit_story(request):
     if request.method == 'POST':
         form = TimelineForm(request.POST)
         if form.is_valid():
-            file_path = os.path.join(settings.BASE_DIR, 'media/dataTL.json')
-            print(form.cleaned_data)
-            with open(file_path, 'r', errors='ignore', encoding="utf8") as roar:
-                new = json.load(roar)
-                new['events'].append({
-                "start_date": {
-                    "month": str(form.cleaned_data['startDate'].month), 
-                    "day": str(form.cleaned_data['startDate'].day), 
-                    "year": str(form.cleaned_data['startDate'].year)
-                },
-                "text": {
-                    "headline": form.cleaned_data['title'], 
-                    "text": form.cleaned_data['story']
-                }
-                })
-                if form.data.get('media_url', False):
-                    print("nooooooo")
-                    new['events'][len(new['events'])-1]["media"]= {
-                        "url": str(form.cleaned_data['media_url']),
-                        "caption": "",
-                        "credit": ""
-                        }
-                    if form.data.get('caption', False):
-                        new['events'][len(new['events'])-1]["media"]["caption"] = form.cleaned_data['caption']
-                    if form.data.get('credit', False):
-                        new['events'][len(new['events'])-1]["media"]["credit"] = form.cleaned_data['credit']
-
-                if form.data.get('endDate', False):
-                    new['events'][len(new['events'])-1]["end_date"]= {
-                    "month": str(form.cleaned_data['endDate'].month), 
-                    "day": str(form.cleaned_data['endDate'].day), 
-                    "year": str(form.cleaned_data['endDate'].year)
-                    }
-                with open(file_path, 'w', errors='ignore', encoding="utf8") as hehe:
-                    json.dump(new, hehe)
-                return render(request, 'tl_success.html')
+            form.save()
+            return render(request, 'tl_success.html', {'name' : form.data["name"]})
     else:
         form = TimelineForm()  
         
@@ -84,7 +89,9 @@ def episodes(request):
 @csrf_exempt
 def vn_success(request):
     if request.method == 'POST':
-        form = VoicenoteForm(request.POST)
+        print(request.body)
+        form = VoicenoteForm(request.POST, request.FILES)
+        print(form)
         # email = EmailMessage(
         # subject = 'Your Voicenote from KRCL',
         # body = 'Hello, ' + request.POST['name'] + "\n\nAttached is your Voicenote!\n\nThank you for taking the time to test this feature!",

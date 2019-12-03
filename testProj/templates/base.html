@@ -21,14 +21,14 @@
 </head>
 <body>
         <div class="d-lg-flex align-items-center" id="topbar">  
-                <div class="d-none d-lg-inline order-2 mx-5">
+                <div class="d-none d-lg-inline order-2">
                 <span class="align-text-bottom"> KRCL Social: </span>
                 <a href="https://www.instagram.com/krclradio/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
                 <a href="https://www.facebook.com/KRCLradio" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
                 <a href="https://twitter.com/KRCLradio" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                 <a href="https://krcl.org/rss/news/" target="_blank"><i class="fas fa-rss fa-2x"></i></a>
                 </div>
-                <div class="d-none d-lg-block p-1 order-3 mx-5 pl-5">
+                <div class="d-none d-lg-block p-1 order-3 mx-5">
                     <a style="color: #fff;" href="https://krcl.secureallegiance.com/krcl/WebModule/Donate.aspx?P=2018FALLPR&PAGETYPE=PLG&CHECK=Q%2bkxhH3Nxza6h5Xt8yfCBr1YhDw50SikSh2nq0qouhg%3d" class="btn btn-sm btnGreen" role="button" target="_blank">Donate</a>
                 </div>
                 <div class="p-1 order-1 mr-lg-auto ml-5">
@@ -50,10 +50,10 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-sm-auto">
                     <li {% if "/" == request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li {% if 'submit_story' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'submit_story' %}">Share Your Story</a></li>
-                    <li {% if 'playlists' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'playlists' %}">Playlists</a></li>
                     <li {% if 'episodes' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'episodes' %}">Episodes</a></li>
-                    <li {% if 'voicenote' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'voicenote' %}">Send Voice Note</a></li>
+                    <li {% if 'voicenote' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'voicenote' %}">Take the Mic</a></li>
+                    <li {% if 'submit_story' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'submit_story' %}">Share Your KRCL Story</a></li>
+                    <li {% if 'playlists' in request.path %}class="active"{% endif %}><a class="nav-link" href="{% url 'playlists' %}">Playlist</a></li>
                 </ul>
                 </div>
             </div>

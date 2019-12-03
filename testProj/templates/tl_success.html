@@ -12,7 +12,7 @@
 <div id="go" class="container">
     <div class="row mx-n5 justify-content-center">
         <div class="col-7 text-center">
-            <h1>Thank you for sharing your story!</h1></br>
+            <h1>Thank you for sharing your story, {{ name }}!</h1></br>
             <p class="mb-4" style="font-size: 22px;">Your story will be published on the timeline upon successful review.<br><br></p>
             <a class="btn btnGreen mr-md-5" role="button" href="{% url 'submit_story' %}">Share another story</a><br class="d-sm-none"><br class="d-sm-none">
             <a class="btn btnGreen" role="button" href="{% url 'home' %}">Home page</a>

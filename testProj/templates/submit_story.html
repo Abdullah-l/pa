@@ -9,37 +9,47 @@
     <form method='POST'> {% csrf_token %}
         {{ form.errors }}
         {{ form.non_field_errors }}
+        <p class="p-0 col-md-8 col-lg-6">KRCL flipped the switch and started spinning records on the air at 3:00 p.m.
+            Mountain Standard Time Monday, December 3, 1979. Help us build out the timeline. Use this form to submit
+            your stories, photos and digital memorabilia. <br>To donate physical items, email <a
+                href="mailto:radioactive@krcl.org">radioactive@krcl.org</a></p>
         <div class="form-group">
             <label for="title">* Title:</label>
-            <input type="text" class="form-control col-md-8 col-lg-6" required id="title" placeholder="Enter a Title"
+            <input type="text" maxlength="128" class="form-control col-md-8 col-lg-6" required id="title" placeholder="Enter a Title"
                 name="title">
         </div>
         <div class="form-group">
             <label for="story">* Story:</label>
-            <textarea type="text" rows="4" class="form-control col-md-8 col-lg-6" required id="story"
+            <textarea type="text" rows="4" maxlength="512" class="form-control col-md-8 col-lg-6" required id="story"
                 placeholder="Enter your Story" name="story"></textarea>
         </div>
         <div class="form-group">
             <label for="startDate">* Event Date:</label>
-            <input type="date" class="form-control col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2" required id="startDate"
+            <input type="date" max="" class="form-control col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2" required id="startDate"
                 placeholder="Enter a date" name="startDate">
         </div>
         <div class="form-group form-check">
             <label class="form-check-label">
-                <input id="endCheck" class="form-check-input" type="checkbox"> Add End Date?
+                <input id="endCheck" class="form-check-input" type="checkbox"> Click to add End Date if applicable
             </label>
         </div>
         <div style="display: none;" id="end" class="form-group">
             <label for="endDate">End Date:</label>
-            <input type="date" class="form-control col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2" id="endDate"
+            <input type="date" max="" class="form-control col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2" id="endDate"
                 placeholder="Enter a date" name="endDate">
         </div>
         </br>
 
         <h3>Media</h3>
-        <p class="mt-3"> Click <a data-toggle="modal" href="#myModal">here</a> to see list of accepted media sources.</p>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input id="medCheck" class="form-check-input" type="checkbox"> Click to add Media
+            </label>
+        </div>
+        </p>
 
-        <div class="form-group">
+        <div style="display: none;" id="med">
+        <p class="mt-3"> Click <a data-toggle="modal" href="#myModal">here</a> to see list of accepted media sources.
             <!-- The Modal -->
             <div class="modal" id="myModal">
                 <div class="modal-dialog modal-dialog-scrollable">
@@ -121,7 +131,8 @@
 
                                 <dt>iframe</dt>
                                 <dd>Instead of a URL, you can use <code>&lt;iframe&gt;</code> markup. This is a good
-                                    general workaround to embedding media types that the Timeline doesn't handle directly.
+                                    general workaround to embedding media types that the Timeline doesn't handle
+                                    directly.
                                 </dd>
 
                                 <dt>Blockquote</dt>
@@ -142,30 +153,44 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
             <label for="media_url">Enter one URL:</label>
-            <input type="url" class="form-control col-md-8 col-lg-5" id="media_url" placeholder="Enter a URL"
+            <input type="url" maxlength="200" class="form-control col-md-8 col-lg-5" id="media_url" placeholder="Enter a URL"
                 name="media_url">
-        </div>
-        <div class="form-group form-check">
+            </div>
+        
+        <!-- <div class="form-group form-check">
             <label class="form-check-label">
                 <input id="capCheck" class="form-check-input" type="checkbox"> Add Caption?
             </label>
+        </div> -->
+        <div id="cap" class="form-group">
+            <label for="caption">* Caption:</label>
+            <input type="text" maxlength="64" class="form-control col-md-6 col-lg-4" id="caption"
+                placeholder="Enter a caption" name="caption">
         </div>
-        <div style="display: none;" id="cap" class="form-group">
-            <label for="caption">Caption:</label>
-            <input type="text" class="form-control col-md-6 col-lg-4" id="caption" placeholder="Enter a caption"
-                name="caption">
-        </div>
-        <div class="form-group form-check">
+        <!-- <div class="form-group form-check">
             <label class="form-check-label">
                 <input id="credCheck" class="form-check-input" type="checkbox"> Add Credits?
             </label>
-        </div>
-        <div style="display: none;" id="cred" class="form-group">
-            <label for="credit">Credit:</label>
-            <input type="text" class="form-control col-md-6 col-lg-4" id="credit" placeholder="Enter a credit"
+        </div> -->
+        <div id="cred" class="form-group">
+            <label for="credit">* Credit:</label>
+            <input type="text" maxlength="64" class="form-control col-md-6 col-lg-4" id="credit" placeholder="Enter a credit"
                 name="credit">
         </div>
+    </div>
+    <div class="form-group mb-3">
+            <label for="name">* Name:</label>
+            <input type="text" maxlength="128" class="form-control col-md-6 col-lg-4" required id="name" placeholder="Enter your name"
+              name="name">
+          </div>
+    <div class="form-group">
+            <p></p>
+            <label for="email">* Email:</label>
+            <input type="email" maxlength="320" class="form-control col-md-6 col-lg-4" required id="email" placeholder="Enter your email"
+                name="email">
+    </div>
         <!-- <div class="form-group mb-4">
           <label for="backgroundImage">Background Image:</label>
           <input type="url" class="form-controlcol-md-8 col-lg-6" id="backgroundImage" placeholder="Enter a URL" name="backgroundImage">
@@ -173,30 +198,39 @@
         <button type='submit' value='Save' class="btn btnGreen">Submit</button>
     </form>
 </div>
+<script>
+startDate.max = new Date().toISOString().split("T")[0];
+endDate.max = new Date().toISOString().split("T")[0];
+</script>
 
 <script>
-    $(document).ready(function () {
-        $("#capCheck").click(function () {
-            if ($("#capCheck").prop("checked")) {
-                $("#cap").show();
-            } else {
-                $("#cap").hide();
-            }
-        });
-        $("#credCheck").click(function () {
-            if ($("#credCheck").prop("checked")) {
-                $("#cred").show();
-            } else {
-                $("#cred").hide();
-            }
-        });
-        $("#endCheck").click(function () {
-            if ($("#endCheck").prop("checked")) {
-                $("#end").show();
-            } else {
-                $("#end").hide();
-            }
-        });
+     $(document).ready(function () {
+    //     $("#capCheck").click(function () {
+    //         if ($("#capCheck").prop("checked")) {
+    //             $("#cap").show();
+    //         } else {
+    //             $("#cap").hide();
+    //         }
+    //     });
+    $("#medCheck").click(function () {
+        if ($("#medCheck").prop("checked")) {
+            $("#med").show();
+            $("#caption").prop('required',true);
+            $("#credit").prop('required',true);
+
+        } else {
+            $("#med").hide();
+            $("#caption").prop('required',false);
+            $("#credit").prop('required',false);
+        }
+    });
+    $("#endCheck").click(function () {
+        if ($("#endCheck").prop("checked")) {
+            $("#end").show();
+        } else {
+            $("#end").hide();
+        }
+    });
     });
 </script>
 

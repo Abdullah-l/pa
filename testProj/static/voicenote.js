@@ -71,9 +71,9 @@ if (isBrowserSupported) {
                     recordings.appendChild(audio);
 
                     balob = mp3Blob;
-                    // var fd = document.querySelector("form");
-                    // form = new FormData(fd);
-                    // form.append('audio', mp3Blob);
+                    var fd = document.querySelector("form");
+                    form = new FormData(fd);
+                    form.append('audio', mp3Blob);
                 };
 
                 recorder.onpause = e => {

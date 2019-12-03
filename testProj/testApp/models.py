@@ -7,14 +7,20 @@ class Episode(models.Model):
     pub_date = models.DateField()
 
     def __str__(self):
-        return self.trackId
+        return self.trackId + " - " + str(self.pub_date)
 
 class Timeline(models.Model):
-    headline = models.TextField()
-    text = models.TextField()
-    event_date = models.DateField()
-    media_url = models.URLField()
+    title = models.CharField(max_length=128)
+    story = models.TextField(max_length=512)
+    startDate = models.DateField(auto_now=False, auto_now_add=False)
+    endDate = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    media_url = models.URLField(max_length=200, blank=True, null=True)
+    caption = models.CharField(max_length=64, blank=True, null=True)
+    credit = models.CharField(max_length=64, blank=True, null=True)
+    name = models.CharField(max_length=128, default="KRCL")
+    email = models.EmailField(max_length=320, default="KRCL@krcl.org")
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.headline + " : " + self.text + " : " + str(self.event_date)
+        return self.title + " / Start Date: " + str(self.startDate) + " / By: " + self.name
 
