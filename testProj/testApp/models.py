@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
+
 
 # Create your models here.
 
@@ -14,6 +16,7 @@ class Timeline(models.Model):
     story = models.TextField(max_length=512)
     startDate = models.DateField(auto_now=False, auto_now_add=False)
     endDate = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    fileUp = models.FileField(blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg','gif','png','jpeg','mp4','mp3','m4a','wav'])])
     media_url = models.URLField(max_length=200, blank=True, null=True)
     caption = models.CharField(max_length=64, blank=True, null=True)
     credit = models.CharField(max_length=64, blank=True, null=True)

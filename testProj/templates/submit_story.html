@@ -6,7 +6,7 @@
 <div class="container mt-5">
     <h2>Share your story to the timeline:</h2>
     </br>
-    <form method='POST'> {% csrf_token %}
+    <form enctype="multipart/form-data" method='POST'> {% csrf_token %}
         {{ form.errors }}
         {{ form.non_field_errors }}
         <p class="p-0 col-md-8 col-lg-6">KRCL flipped the switch and started spinning records on the air at 3:00 p.m.
@@ -41,23 +41,66 @@
         </br>
 
         <h3>Media</h3>
+
         <div class="form-group form-check">
             <label class="form-check-label">
-                <input id="medCheck" class="form-check-input" type="checkbox"> Click to add Media
+                <input id="medFileCheck" class="form-check-input" type="checkbox"> Click to add Media
             </label>
         </div>
-        </p>
+        <div style="display: none;" id="medFile">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="fileCheck" value="option2" checked>
+            <label class="form-check-label" for="fileCheck"> Add Media by File Upload</label>
+          </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="medCheck" value="option1">
+            <label class="form-check-label" for="medCheck"> Add Media by URL</label>
+          </div>
+
+        <div id="file">
+            <p class="mt-3"> Click <a data-toggle="modal" href="#fileModal">here</a> to see list of accepted file types.
+                <div class="modal" id="fileModal">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+    
+                            <div class="modal-body">
+                                <dl>
+                                    <dt>Image</dt>
+                                    <dd>Timeline currently supports <code>jpg</code>, <code>gif</code>, <code>png</code> or
+                                        <code>jpeg</code> files.
+                                    </dd>
+    
+                                    <dt>Video Files</dt>
+                                    <dd>Timeline currently supports
+                                        <code>.mp4</code> files.</dd>
+    
+                                    <dt>Audio Files</dt>
+                                    <dd>Timeline currently supports
+                                        <code>.mp3</code>, <code>.m4a</code>, and <code>.wav</code> files.</dd>
+                                </dl>
+                            </div>
+    
+                            <div class="modal-footer justify-content-center">
+                                <button class="btn btnGreen" data-dismiss="modal">Done</button>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="form-group">
+              <label for="fileUp">* Choose File: </label>
+              <input type="file" name="fileUp" class="form-control-file" id="fileUp" accept=".jpg,.gif,.png,.jpeg,.mp4,.mp3.,m4a.,.wav">
+            </div>
+        </div>
 
         <div style="display: none;" id="med">
         <p class="mt-3"> Click <a data-toggle="modal" href="#myModal">here</a> to see list of accepted media sources.
-            <!-- The Modal -->
             <div class="modal" id="myModal">
                 <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
 
-
-
-                        <!-- Modal body -->
                         <div class="modal-body">
                             <dl>
                                 <dt>Image</dt>
@@ -111,11 +154,7 @@
                                     <code>https://flic.kr/p/sv3VN6</code>) will also work.</dd>
 
                                 <dt>Imgur</dt>
-                                <dd>Use the URL for the <a href="http://imgur.com">Imgur</a> photo's page. Please note
-                                    that we have received an incresing number of support requests due to restrictions
-                                    Imgur is placing on content served. If Imgur is serving a 403 error to Timeline in
-                                    lieu of your image, this cannot be fixed on our end, you will need to contact Imgur
-                                    support.</dd>
+                                <dd>Use the URL for the <a href="http://imgur.com">Imgur</a> photo's page.</dd>
 
 
                                 <dt>DocumentCloud</dt>
@@ -128,12 +167,6 @@
 
                                 <dt>Storify</dt>
                                 <dd>Use the URL of the <a href="http://www.storify.com">Storify</a>.</dd>
-
-                                <dt>iframe</dt>
-                                <dd>Instead of a URL, you can use <code>&lt;iframe&gt;</code> markup. This is a good
-                                    general workaround to embedding media types that the Timeline doesn't handle
-                                    directly.
-                                </dd>
 
                                 <dt>Blockquote</dt>
                                 <dd>Instead of a URL, you can use <code>&lt;blockquote&gt;</code> tags around whatever
@@ -154,11 +187,11 @@
                 </div>
             </div>
             <div class="form-group">
-            <label for="media_url">Enter one URL:</label>
+            <label for="media_url"> * Enter one URL:</label>
             <input type="url" maxlength="200" class="form-control col-md-8 col-lg-5" id="media_url" placeholder="Enter a URL"
                 name="media_url">
             </div>
-        
+        </div>
         <!-- <div class="form-group form-check">
             <label class="form-check-label">
                 <input id="capCheck" class="form-check-input" type="checkbox"> Add Caption?
@@ -180,22 +213,27 @@
                 name="credit">
         </div>
     </div>
+    <br><br>
+    <h3>More About You</h3>
+
     <div class="form-group mb-3">
             <label for="name">* Name:</label>
             <input type="text" maxlength="128" class="form-control col-md-6 col-lg-4" required id="name" placeholder="Enter your name"
               name="name">
+              <p>The name you enter here will appear on the timeline.</p>
           </div>
     <div class="form-group">
-            <p></p>
             <label for="email">* Email:</label>
             <input type="email" maxlength="320" class="form-control col-md-6 col-lg-4" required id="email" placeholder="Enter your email"
                 name="email">
+            <p>Please provide your email in case we need to contact you about your submission.</p>
+
     </div>
         <!-- <div class="form-group mb-4">
           <label for="backgroundImage">Background Image:</label>
           <input type="url" class="form-controlcol-md-8 col-lg-6" id="backgroundImage" placeholder="Enter a URL" name="backgroundImage">
   </div> -->
-        <button type='submit' value='Save' class="btn btnGreen">Submit</button>
+        <button type='submit' value='Save' class="mt-4 btn btnGreen">Submit</button>
     </form>
 </div>
 <script>
@@ -212,16 +250,35 @@ endDate.max = new Date().toISOString().split("T")[0];
     //             $("#cap").hide();
     //         }
     //     });
-    $("#medCheck").click(function () {
-        if ($("#medCheck").prop("checked")) {
-            $("#med").show();
+    $("#medFileCheck").click(function () {
+        if ($("#medFileCheck").prop("checked")) {
+            $("#medFile").show();
             $("#caption").prop('required',true);
             $("#credit").prop('required',true);
 
         } else {
-            $("#med").hide();
+            $("#medFile").hide();
             $("#caption").prop('required',false);
             $("#credit").prop('required',false);
+        }
+    });
+    $("#medCheck, #fileCheck",).change(function () {
+        if ($("#medCheck").prop("checked")) {
+            $("#med").show();
+            $("#media_url").prop('required',true);
+
+        } else {
+            $("#med").hide();
+            $("#media_url").prop('required',false);
+        }
+
+        if ($("#fileCheck").prop("checked")) {
+            $("#file").show();
+            $("#fileUp").prop('required',true);
+        } else {
+            $("#file").hide();
+            $("#fileUp").prop('required',false);
+
         }
     });
     $("#endCheck").click(function () {

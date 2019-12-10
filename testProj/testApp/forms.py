@@ -23,7 +23,7 @@ from .models import Timeline
 class TimelineForm(forms.ModelForm):
     class Meta:
         model = Timeline
-        fields = ['title', 'story', 'startDate', 'endDate', 'media_url', 'caption', 'credit', 'name', 'email']
+        fields = ['title', 'story', 'startDate', 'endDate', 'media_url', 'fileUp', 'caption', 'credit', 'name', 'email']
 
 class VoicenoteForm(forms.Form):
     name = forms.CharField(max_length=128, required=False)

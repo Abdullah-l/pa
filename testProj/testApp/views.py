@@ -45,8 +45,17 @@ def home(request):
                     "text": "<p style=\"color: #DC5600\">Submitted by: " + event.name + "</p>" + event.story
                 }
                 })
-                if event.media_url:
-                    print("nooooooo")
+                if event.fileUp:
+                    new['events'][len(new['events'])-1]["media"]= {
+                    "url": str.lower(event.fileUp.url),
+                    "caption": "",
+                    "credit": ""
+                    }
+                    if event.caption:
+                        new['events'][len(new['events'])-1]["media"]["caption"] = event.caption
+                    if event.credit:
+                        new['events'][len(new['events'])-1]["media"]["credit"] = event.credit
+                elif event.media_url:
                     new['events'][len(new['events'])-1]["media"]= {
                         "url": str(event.media_url),
                         "caption": "",
@@ -69,7 +78,8 @@ def home(request):
 
 def submit_story(request):
     if request.method == 'POST':
-        form = TimelineForm(request.POST)
+        form = TimelineForm(request.POST, request.FILES)
+        print(request.FILES)
         if form.is_valid():
             form.save()
             return render(request, 'tl_success.html', {'name' : form.data["name"]})
